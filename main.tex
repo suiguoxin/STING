@@ -1,16 +1,39 @@
-\documentclass{book}
+\documentclass{report}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \graphicspath{{img/}}
 
+%Personnalisation les en-têtes et pieds de page avec l'extension fancyhdr
+\renewcommand{\baselinestretch}{1.05}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{\bfseries\thepage}
+\fancyhead[R]{\bfseries\nouppercase{\leftmark}}
+\setlength{\headheight}{15pt}
+
+\let\headruleORIG\headrule
+\renewcommand{\headrule}{\color{black} \headruleORIG}
+\renewcommand{\headrulewidth}{1.0pt}
+\usepackage{colortbl}
+\arrayrulecolor{black}
+
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
 \title{Rapport}
-\author{Guoxin SUI }
+\author{Guoxin SUI}
 \date{July 2017}
 
 \begin{document}
 \include{cover}
-\frontmatter
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Non-significant pages %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
