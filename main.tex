@@ -1,6 +1,8 @@
 \documentclass{report}
 \usepackage[utf8]{inputenc}
+%police et mise en page (marges) du document
 \usepackage[T1]{fontenc}
+\usepackage[top=3.6cm, bottom=2.4cm, left=3.2cm, right=3.2cm]{geometry}
 \usepackage[frenchb]{babel}
 \usepackage{hyperref}
 \usepackage{graphicx}
@@ -29,10 +31,6 @@
   \renewcommand{\headrulewidth}{0pt}
 }
 
-\title{Rapport}
-\author{Guoxin SUI}
-\date{July 2017}
-
 \begin{document}
 \include{cover}
 
@@ -43,6 +41,7 @@
 \include{remerciements}
 \tableofcontents
 
+\include{introduction}
 \include{contexte}
 \include{body}
 \include{conclusion}

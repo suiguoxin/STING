@@ -1,11 +1,11 @@
 \chapter{Contexte}
-\label{chap:premierchapitre}
 
 \section{SNCF \& VSCT}
 \subsection{Groupe SNCF}
 La Société nationale des chemins de fer français (SNCF) est l'entreprise ferroviaire publique française, officiellement créée le 1er janvier 1938 en application du décret-loi du 31 août 1937. Elle est notamment présente dans les domaines du transport de voyageurs, du transport de marchandises et réalise la gestion, l'exploitation et la maintenance du réseau ferré national dont elle est propriétaire.
 
 La SNCF est composée de trois EPIC, mais elle possède de nombreuses filiales aussi bien de droit public que de droit privé qui forment le groupe SNCF.
+\clearpage
 
 \subsection{LE GROUPE VSC \& Rail Europe}
 VSC Technologie / Voyages-sncf(oui.sncf) / SNCF
@@ -46,6 +46,12 @@ Les serveurs (virtuels ou non) des plateformes sont accessibles en ligne de comm
 
 Un frontal web ( RUNDECK ) permet de mettre à disposition des utilisateurs des opérations de plus haut-niveau, en self-service web sur les serveurs/plateformes (ex: déploiement applicatif, reconfiguration applicative, arrêt/relance et autres opérations spécifiques sur les serveurs).
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{usine-logicielle-operation}
+\caption{Usine Logicielle: Opération}
+\end{figure}
+
 La configuration détaillée des différentes plateformes de l'application est industrialisée par:
 \begin{itemize}
   \item l'outil PUPPET (configuration technique - COTS) et un REFERENTIEL TECHNIQUE en infra-as-code
@@ -57,12 +63,6 @@ Sauf cas particulier, l'accès aux outils et aux plateformes se fait selon l'aut
 
 \href{https://wiki.vsct.fr/display/KTN/KATANA+Accueil}{Katana}
 La solution Katana assure la configuration technique, le déploiement applicatif et autre tâches industrialisées sur les machines des infrastructures VSC(T) de Lille/St-Denis (DMZs hors-production, Assemblage, Perf, Partenaires, Rithmics, Technique, Production, SNB....), à l'exception notable des SIs du CNIT, de VSCloud, et des infra bigData....
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{usine-logicielle-operation}
-\caption{Usine Logicielle: Opération}
-\end{figure}
 
 Elle est composée :
 \begin{itemize}
