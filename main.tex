@@ -1,35 +1,4 @@
-\documentclass{report}
-\usepackage[utf8]{inputenc}
-%police et mise en page (marges) du document
-\usepackage[T1]{fontenc}
-\usepackage[top=3.6cm, bottom=2.4cm, left=3.2cm, right=3.2cm]{geometry}
-\usepackage[frenchb]{babel}
-\usepackage{hyperref}
-\usepackage{graphicx}
-\graphicspath{{images/}}
-%Paragraph formatting
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-\renewcommand{\baselinestretch}{1.05}
-%Personnalisation les en-têtes et pieds de page avec l'extension fancyhdr
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyfoot{}
-\fancyhead[L]{\bfseries\thepage}
-\fancyhead[R]{\bfseries\nouppercase{\leftmark}}
-\setlength{\headheight}{15pt}
-
-\let\headruleORIG\headrule
-\renewcommand{\headrule}{\color{black} \headruleORIG}
-\renewcommand{\headrulewidth}{1.0pt}
-\usepackage{colortbl}
-\arrayrulecolor{black}
-
-\fancypagestyle{plain}{
-  \fancyhead{}
-  \fancyfoot[C]{\thepage}
-  \renewcommand{\headrulewidth}{0pt}
-}
+\include{style}
 
 \begin{document}
 \include{cover}
@@ -43,7 +12,7 @@
 
 \include{introduction}
 \include{contexte}
-\include{body}
+\include{body/main}
 \include{conclusion}
 \include{lexique}
 
