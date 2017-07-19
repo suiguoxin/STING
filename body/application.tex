@@ -1,5 +1,5 @@
 \section{Application}
-\subsection{Présentation:}
+\subsection{Présentation}
 
 \subsubsection{IHM}
 IHM de l'application est réalisé en Bootstrap, jQuery et GSP(le mécanismes de grails pour render views).
@@ -147,16 +147,26 @@ Il est réalisé en utilisant un plugin et en ajoutant des annotations dans les 
 
 \clearpage
 
-\subsubsection{Continus Delivery(git, test unitaire, pipeline->deploiement auto)}
-L'intégration continus de l'application se réalise en jenkins pipeline.(fig.\ref{fig:jenkins})
+\subsubsection{Intégration Continue}
+Afin d'améliorer la qualité du code et du produit final et faciliter le déploiement de l'application, on pratique les principes de l'intégratioin continue.
+L'intégration continus de l'application se réalise en utilisant git et jenkins pipeline.
 
-Il contient des stages differents:
+Les codes sources sont géré en git et stocké dans Gitlab.
+Au début on a défini des actions à réaliser obligatoirement avant de faire "git push":
 \begin{itemize}
- \item checkout:
- \item versioning:
- \item build:
- \item deploy:
- \item run:
+ \item Faire relire le code par un tiers;
+ \item Faire valider par un tiers que la feature développée fonctionne comme attendu;
+ \item Valider la nouvelle fonction par un ou des tests;
+ \item Exécuter grails test-app.
+\end{itemize}
+
+Le pipeline(fig.\ref{fig:jenkins}) contient les étapes suivantes:
+\begin{itemize}
+ \item "checkout": Récupérer les codes de gitlab;
+ \item "versioning": Modifier la version de l'application selon le numéro de déploiement sur Jenkins;
+ \item "build": Builder l'applcation;
+ \item "deploy": Copier le war excutable sur le serveur de production;
+ \item "run": Excuter l'application.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -165,6 +175,8 @@ Il contient des stages differents:
  \caption{Jenkins}
  \label{fig:jenkins}
 \end{figure}
+
+Les tests automatique sur Jenkins sont à réaliser.
 
 \clearpage
 
@@ -184,8 +196,16 @@ Il contient des stages differents:
        jQuery est une bibliothèque JavaScript libre et multi-plateforme créée pour faciliter l'écriture de scripts côté client dans le code HTML des pages web.
        Etant donné la complécité de l'IHM de l'application, jQuery est suffisant pour réaliser les animations et les ajax.
  \item Backlog:
-       Backlog se réfère à une accumulation d'œuvres en attente d'exécution ou aux commandes à remplir.
+       Backlog (fig.\ref{fig:backlog})se réfère à une accumulation d'œuvres en attente d'exécution ou aux commandes à remplir.
        Cette méthode convient à la méthode qu'on a appliqué au cours du project.
+
+       \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.6\textwidth]{backlog}
+        \caption{BACKLOG}
+        \label{fig:backlog}
+       \end{figure}
+
 \end{itemize}
 
 
