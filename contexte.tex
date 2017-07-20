@@ -51,12 +51,11 @@ Le groupe va bientôt se nomer "oui.sncf".
 
 \section{Usine Logicielle \& Katana} (à quoi ça sert NDL)
 \subsection{Usine Logicielle}
-\href{https://wiki.vsct.fr/pages/viewpage.action?spaceKey=KTN\&title=Usine+Logicielle+VSCT}{Usine Logicielle}
 L'usine logicielle est l'ensemble de logiciels, d'outils et de procédures qui permettent de structurer et d'industrialiser les développements VSCT, ainsi que leur validation et déploiement sur l'infrastructure VSCT (hors VSCloud).
 
 Dans sa définition actuelle: elle est la continuation de la Nouvelle usine logicielle Lille, et de Katana.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{usine-logicielle-developpement}
 \caption{Usine Logicielle: Développement}
@@ -77,7 +76,7 @@ Les serveurs (virtuels ou non) des plateformes sont accessibles en ligne de comm
 
 Un frontal web ( RUNDECK ) permet de mettre à disposition des utilisateurs des opérations de plus haut-niveau, en self-service web sur les serveurs/plateformes (ex: déploiement applicatif, reconfiguration applicative, arrêt/relance et autres opérations spécifiques sur les serveurs).
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{usine-logicielle-operation}
 \caption{Usine Logicielle: Opération}
@@ -92,15 +91,21 @@ La configuration détaillée des différentes plateformes de l'application est i
 Sauf cas particulier, l'accès aux outils et aux plateformes se fait selon l'authentification Active Directory de l'utilisateur.
 \subsection{Katana}
 
-\href{https://wiki.vsct.fr/display/KTN/KATANA+Accueil}{Katana}
 La solution Katana assure la configuration technique, le déploiement applicatif et autre tâches industrialisées sur les machines des infrastructures VSC(T) de Lille/St-Denis (DMZs hors-production, Assemblage, Perf, Partenaires, Rithmics, Technique, Production, SNB....), à l'exception notable des SIs du CNIT, de VSCloud, et des infra bigData....
 
-Elle est composée :
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{katana}
+\caption{Déploiement Applicatif Katana}
+\end{figure}
+
+Elle est composée de:
+
 \begin{itemize}
-  \item D'un référentiel de données techniques sur les plateformes/machines sous forme infraAsCode (fichiers envYyaml pour les plateformes, fichiers de configuration Puppet)
-  \item D'un référentiel des configurations applicatives: Hesperides (géré par sa propre communauté)
-  \item D'un catalogue de scripts (bash/perl/groovy/...), issu des projets de déploiement VSCT, implantant les opérations de déploiement/contrôle/supervision/etc
-  \item D'un orchestrateur de tâches en self-service, Rundeck, qui pilote les tâches du Puppet et du catalogue de script (en central, ou sur les machines) .Il peut être contrôlé soit manuellement (par son IHM web), soit par API REST.
+  \item un référentiel de données techniques sur les plateformes/machines sous forme infraAsCode (fichiers envYyaml pour les plateformes, fichiers de configuration Puppet)
+  \item un référentiel des configurations applicatives: Hesperides (géré par sa propre communauté)
+  \item un catalogue de scripts (bash/perl/groovy/...), issu des projets de déploiement VSCT, implantant les opérations de déploiement/contrôle/supervision/etc
+  \item un orchestrateur de tâches en self-service, Rundeck, qui pilote les tâches du Puppet et du catalogue de script (en central, ou sur les machines) .Il peut être contrôlé soit manuellement (par son IHM web), soit par API REST.
 \end{itemize}
 
 Katana s'inscrit dans la Usine Logicielle VSCT. La solution s'intègre en particulier avec les outils:
