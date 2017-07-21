@@ -2,7 +2,20 @@
 
 \subsection{Architecture de l'application}
 
-\paragraph{Modèle MVC :}
+\paragraph{Schéma:}
+L'application agit en frontal de Nexus en utilisant l'api via Lucène (lexique.\ref{lexi:lucene}).
+Sur la figure (fig.\ref{fig:schema}) on voit les flux éventuels depuis une application dans le navigateur et ceux depuis une application dans le serveur.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.7\textwidth]{schema}
+ \caption{Schéma}
+ \label{fig:schema}
+\end{figure}
+
+L'application pourra évoluer pour supporter un autre logiciel 'entrepot' que Nexus.
+
+\paragraph{Modèle MVC:}
 L'application suit le motif Modèle-Vue-Contrôleur.
 Il est composé de  trois types de modules ayant trois responsabilités différentes :
 \begin{itemize}
@@ -30,6 +43,8 @@ Ca aide à créer l'IHM de site facilement.
 \paragraph{jQuery:}
 jQuery est une bibliothèque JavaScript libre et multi-plateforme créée pour faciliter l'écriture de scripts côté client dans le code HTML des pages web.
 Etant donné la complécité de l'IHM de l'application, jQuery est suffisant pour réaliser les animations et les ajax.
+\paragraph{Spock:}
+Spock est un framework de test Java capable de gérer le cycle de vie complet d'une application logicielle.
 \paragraph{Backlog:}
 Backlog (fig.\ref{fig:backlog}) se réfère à une accumulation d'œuvres en attente d'exécution ou aux commandes à remplir.
 Cette méthode convient à la méthode qu'on a appliqué au cours du project.
@@ -210,7 +225,26 @@ Le pipeline(fig.\ref{fig:jenkins}) contient les étapes suivantes:
  \label{fig:jenkins}
 \end{figure}
 
-Les tests automatique sur Jenkins sont à réaliser.
+\subsection{Test}
+
+Les tests sont fait pour assurer le bon fonctionnement.
+Ils sont à lancer avant chaque merge de code et chaque déploiement. (fig.\ref{fig:test})
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.6\textwidth]{test}
+ \caption{Test}
+ \label{fig:test}
+\end{figure}
+
+Les tests contient des parties suivantes:
+\begin{itemize}
+ \item les tests intégrations: Ils sont réalisé en utilisant le framework "Spock",
+       ça couvre l'ensemble des fonctionnalités de l'api REST;
+ \item les tests fonctionnels: Ils sont prévu pour la partie IHM;
+\end{itemize}
+
+L'automatisation de test sur Jenkins est prévu.
 
 \clearpage
 
