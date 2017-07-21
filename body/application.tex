@@ -3,7 +3,7 @@
 \subsection{Architecture de l'application}
 
 \paragraph{Schéma:}
-L'application agit en frontal de Nexus en utilisant l'api via Lucène (lexique.\ref{lexi:lucene}).
+L'application agit en frontal de Nexus via Lucène (lexique.\ref{lexi:lucene}), l'api fournie par Nexus.
 Sur la figure (fig.\ref{fig:schema}) on voit les flux éventuels depuis une application dans le navigateur et ceux depuis une application dans le serveur.
 
 \begin{figure}[ht]
@@ -64,6 +64,9 @@ Le navbar contient des élements suivant:
  \item Nom de l'application, nom de version et le numéro de déploiement sur Jenkins;
  \item Quatre buttons vers les quater pages;
  \item Un dropdown menu qui permet de swicher les languages(Français, Anglais, Chinois).
+ Par défault la language est configuré selon localisation.
+La fonctionnalité d'internationalization est réalizé un utilisant plugin "i18n",
+nous avons changé le format et l'encodage par défault pour ajouter une language non-latino.
 \end{itemize}
 
 L'application contient principalement les cinq écrans suivant:
@@ -176,8 +179,6 @@ Elle contient des élements suivants:
  \label{fig:modal_save}
 \end{figure}
 
-\clearpage
-
 \subsection{Api REST}
 L'application fournie une interface api REST.
 Comme dans l'IHM , l'api permet de chercher, valider, stocker des notes de livraison.
@@ -193,8 +194,6 @@ Il est réalisé en utilisant un plugin et en ajoutant des annotations dans les 
  \caption{La page swagger}
  \label{fig:page_swagger}
 \end{figure}
-
-\clearpage
 
 \subsection{Intégration Continue}
 Afin d'améliorer la qualité du code et du produit final et faciliter le déploiement de l'application, on pratique les principes de l'intégratioin continue.
@@ -232,7 +231,7 @@ Ils sont à lancer avant chaque merge de code et chaque déploiement. (fig.\ref{
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=0.6\textwidth]{test}
+ \includegraphics[width=0.5\textwidth]{test}
  \caption{Test}
  \label{fig:test}
 \end{figure}
@@ -245,7 +244,5 @@ Les tests contient des parties suivantes:
 \end{itemize}
 
 L'automatisation de test sur Jenkins est prévu.
-
-\clearpage
 
 \clearpage
