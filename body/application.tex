@@ -34,30 +34,65 @@ Par exemple, on crée un service "NexusConsumer" qui contient toutes les opérat
 
 \subsection{Choix des technologies}
 
-\paragraph{Grails:}
+\subsubsection{Coté Serveur}
+
+\paragraph{Grails :}
 Grails est un framework open source de développement agile d'applications web basé sur le langage Groovy et sur le patron de conception Modèle-Vue-Contrôleur.
 Il convient à la taille de ce projet.
 De plus il y a référent compétent qui connait bien ce framework.
-\paragraph{Groovy:}
+\paragraph{Groovy :}
 Groovy est le nom d'un langage de programmation orienté objet destiné à la plate-forme Java.
 Groovy utilise une syntaxe très proche de Java, par rapport à Java, il est moins verbeux et plus efficace.
-\paragraph{Bootstrap:}
+
+\paragraph{Swagger :}
+Swagger est une spécification pour les fichiers d'interface lisibles par machine pour décrire, la production, la consommation et la visualisation de "RESTful Web Services".
+\paragraph{Spock :}
+Spock est un framework de test Java capable de gérer le cycle de vie complet d'une application logicielle.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.6\textwidth]{technologies}
+ \caption{Choix des Technologies}
+ \label{fig:technologies}
+\end{figure}
+
+\subsubsection*{Coté Client}
+
+\paragraph{Bootstrap :}
 Boostrap est un framwork front-end qui contient une collection d'outils utiles à la création du design de sites.
 C'est un ensemble qui contient des codes HTML et CSS, des formulaires, boutons, outils de navigation et autres éléments interactifs, ainsi que des extensions JavaScript en option. C'est l'un des projets les plus populaires sur la plate-forme de gestion de développement GitHub.
 Ca aide à créer l'IHM de site facilement.
-\paragraph{jQuery:}
+
+\paragraph{jQuery :}
 jQuery est une bibliothèque JavaScript libre et multi-plateforme créée pour faciliter l'écriture de scripts côté client dans le code HTML des pages web.
 Etant donné la complexité de l'IHM de l'application, jQuery est suffisant pour réaliser les animations et les ajax.
-\paragraph{Spock:}
-Spock est un framework de test Java capable de gérer le cycle de vie complet d'une application logicielle.
-\paragraph{Backlog:}
-Backlog (fig.\ref{fig:backlog}) se réfère à une accumulation d'œuvres en attente d'exécution ou aux commandes à remplir.
+
+\paragraph{jQuery UI :}
+jQuery UI est une collection de widgets, effets visuels et thèmes implémentés avec jQuery, des feuilles de style en cascade, et du HTML
+
+\paragraph{SASS :}
+Sass (Syntactically Awesome Stylesheets) est un langage de génération de feuilles de style.
+
+\paragraph{HTML 5, CSS 3, ECMAScript 6 :}
+On essaie toujours d'uitiliser les technologies récents.
+
+\subsubsection*{Gestion}
+
+\paragraph{Git :}
+Git est un logiciel de gestion de versions décentralisé.
+
+\paragraph{Jenkins :}
+Jenkins est un outil open source d'intégration continue.
+
+\paragraph{Backlog :}
+Un backlog (fig.\ref{fig:backlog}) est une liste de fonctions ou tâches techniques que l'équipe maintient.
+Backlog se réfère à une accumulation d'œuvres en attente d'exécution ou aux commandes à remplir.
 Cette méthode convient à la méthode qu'on a appliquée au cours du projet.
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=0.6\textwidth]{backlog}
- \caption{BACKLOG}
+ \caption{Backlog de Dn-Rider}
  \label{fig:backlog}
 \end{figure}
 
@@ -241,16 +276,19 @@ Ils sont à lancer avant chaque confirmation de modification de code et chaque d
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=0.5\textwidth]{test}
+ \includegraphics[width=0.4\textwidth]{test}
  \caption{Test}
  \label{fig:test}
 \end{figure}
 
 Les tests contientent des parties suivantes :
 \begin{itemize}
- \item les tests intégrations: Ils sont réalisés en utilisant le framework "Spock",
-       ça couvre l'ensemble des fonctionnalités de l'api REST ;
- \item les tests fonctionnels: Ils sont prévu pour la partie IHM.
+ \item les tests d'intégration:
+       Dans le test d’intégration, chacun des modules indépendants du logiciel est assemblé et testé dans l’ensemble.
+       Ils sont réalisés en utilisant le framework "Spock" et ils ont couvert l'ensemble des fonctionnalités de l'api REST.
+ \item les tests fonctionnels:
+       Les tests fonctionnels sont pour objectif de  vérifier que les fonctionnalités demandées sont bien supportées.
+       Ils sont prévu pour la partie IHM.
 \end{itemize}
 
 L'automatisation de test sur Jenkins est prévu.
