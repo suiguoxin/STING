@@ -3,7 +3,7 @@
 \subsection{Architecture de l'application}
 
 \paragraph{Schéma:}
-L'application agit en frontal de Nexus via Lucène (lexique.\ref{lexi:lucene}), l'api fournie par Nexus.
+L'application agit en frontal de l'api de Nexus. Les recherches se fait par Lucène (lexique.\ref{lexi:lucene}).
 Sur la figure (fig.\ref{fig:schema}) on voit les flux éventuels depuis une application dans le navigateur et ceux depuis une application dans le serveur.
 
 \begin{figure}[ht]
@@ -13,14 +13,12 @@ Sur la figure (fig.\ref{fig:schema}) on voit les flux éventuels depuis une appl
  \label{fig:schema}
 \end{figure}
 
-L'application pourra évoluer pour supporter un autre logiciel 'entrepôt' que Nexus.
-
 \paragraph{Modèle MVC:}
 L'application suit le motif Modèle-Vue-Contrôleur.
 Il est composé de trois types de modules ayant trois responsabilités différentes :
 \begin{itemize}
- \item Modèle : Il n'y pas de base de données dans cette application. Ça correspond
-       aux données de Nexus et à la cache.
+ \item Modèle : Il n'y pas de base de données dans cette application.
+       La persistance de données est assuré par Nexus et cache intégrée.
  \item Vue : La présentation de l'interface graphique.
        Elle est realisée en utilisant Bootstrap et jQuery dans cette application.
  \item Contrôleur : La logique concernant les actions effectuées par l'utilisateur.
@@ -31,8 +29,11 @@ Il est composé de trois types de modules ayant trois responsabilités différen
 On extrait les codes techniques des contrôleurs et former des services. Après, on peut les appeler depuis les contrôleurs.
 Ça aide à éviter les codes répétitifs et rendre les codes métiers propre.
 Par exemple, on crée un service "NexusConsumer" qui contient toutes les opérations de Nexus.
+L'application pourra donc évoluer pour supporter un autre logiciel 'entrepôt' que Nexus.
 
 \subsection{Choix des technologies}
+
+Par principe, on choisit les technologies open-source qui conforment à l'objectif et au contexte de ce projet.
 
 \subsubsection{Coté Serveur}
 
@@ -40,85 +41,104 @@ Par exemple, on crée un service "NexusConsumer" qui contient toutes les opérat
 Grails est un framework open source de développement agile d'applications web basé sur le langage Groovy et sur le patron de conception Modèle-Vue-Contrôleur.
 Il convient à la taille de ce projet.
 De plus il y a référent compétent qui connait bien ce framework.
+
 \paragraph{Groovy :}
 Groovy est le nom d'un langage de programmation orienté objet destiné à la plate-forme Java.
 Groovy utilise une syntaxe très proche de Java, par rapport à Java, il est moins verbeux et plus efficace.
 
+\paragraph{RESTful API :}
+REST (representational state transfer) est un style d'architecture pour les systèmes hypermédia distribués.
+Les APIs(application programming interface) de services web qui adhèrent aux contraintes de l'architecture REST sont appelés RESTful APIs
+
 \paragraph{Swagger :}
-Swagger est une spécification pour les fichiers d'interface lisibles par machine pour décrire, la production, la consommation et la visualisation de "RESTful Web Services".
+Swagger est une spécification pour les fichiers d'interface lisibles par machine pour décrire, la production, la consommation et la visualisation de Service Web REST.
+
 \paragraph{Spock :}
 Spock est un framework de test Java capable de gérer le cycle de vie complet d'une application logicielle.
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=0.6\textwidth]{technologies}
- \caption{Choix des Technologies}
- \label{fig:technologies}
+ \includegraphics[width=0.6\textwidth]{technologies_back}
+ \caption{Choix des Technologies : Coté Serveur}
+ \label{fig:technologies_back}
 \end{figure}
 
-\subsubsection*{Coté Client}
+\subsubsection{Coté Client}
 
 \paragraph{Bootstrap :}
-Boostrap est un framwork front-end qui contient une collection d'outils utiles à la création du design de sites.
+Boostrap est un framework front-end qui contient une collection d'outils utiles à la création du design de sites.
 C'est un ensemble qui contient des codes HTML et CSS, des formulaires, boutons, outils de navigation et autres éléments interactifs, ainsi que des extensions JavaScript en option. C'est l'un des projets les plus populaires sur la plate-forme de gestion de développement GitHub.
-Ca aide à créer l'IHM de site facilement.
+Cela permet de créer l'IHM d'un site facilement.
 
 \paragraph{jQuery :}
 jQuery est une bibliothèque JavaScript libre et multi-plateforme créée pour faciliter l'écriture de scripts côté client dans le code HTML des pages web.
-Etant donné la complexité de l'IHM de l'application, jQuery est suffisant pour réaliser les animations et les ajax.
+Etant donné la complexité de l'IHM de l'application, jQuery est suffisant pour réaliser les animations et les Ajax (lexique.\ref{lexi:ajax}).
 
 \paragraph{jQuery UI :}
-jQuery UI est une collection de widgets, effets visuels et thèmes implémentés avec jQuery, des feuilles de style en cascade, et du HTML
-
-\paragraph{SASS :}
-Sass (Syntactically Awesome Stylesheets) est un langage de génération de feuilles de style.
+jQuery UI est une collection de widgets, effets visuels et thèmes implantés avec jQuery, des feuilles de style en cascade et du HTML.
 
 \paragraph{HTML 5, CSS 3, ECMAScript 6 :}
-On essaie toujours d'uitiliser les technologies récents.
+On essaie toujours d'utiliser les technologies récents.
 
-\subsubsection*{Gestion}
-
-\paragraph{Git :}
-Git est un logiciel de gestion de versions décentralisé.
-
-\paragraph{Jenkins :}
-Jenkins est un outil open source d'intégration continue.
-
-\paragraph{Backlog :}
-Un backlog (fig.\ref{fig:backlog}) est une liste de fonctions ou tâches techniques que l'équipe maintient.
-Backlog se réfère à une accumulation d'œuvres en attente d'exécution ou aux commandes à remplir.
-Cette méthode convient à la méthode qu'on a appliquée au cours du projet.
+\paragraph{SASS :}
+Sass (Syntactically Awesome Stylesheets) est un langage de génération de feuilles de style (CSS).
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=0.6\textwidth]{backlog}
- \caption{Backlog de Dn-Rider}
- \label{fig:backlog}
+ \includegraphics[width=0.6\textwidth]{technologies_front}
+ \caption{Choix des Technologies : Coté Client}
+ \label{fig:technologies_front}
+\end{figure}
+
+\subsubsection{Gestion du Code et Intégration Continue}
+
+\paragraph{Git :}
+Git est un logiciel de gestion de versions décentralisé.
+Les codes sources sont géré en git et stocké sur Gitlab. L'authentification se fait par SSH.
+
+\paragraph{Jenkins :}
+Jenkins est un outil open source d'intégration continue.
+Jenkins Pipeline est une suite de plug-ins qui prend en charge la mise en œuvre et l'intégration des pipelines de distribution continue dans Jenkins.
+Au bout d'un mois et demi, on a la première version de l'application et on commence à faire intégration continue en utilisant Jenkins pipeline.
+Chaque fois qu'il y a un commit sur la branche "master", l'application se déploie toute seule.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.5\textwidth]{technologies_gestion}
+ \caption{Choix des Technologies : Gestion du Code et Intégration Continue}
+ \label{fig:technologies_gestion}
 \end{figure}
 
 \subsection{IHM}
-IHM de l'application est réalisé en Bootstrap, jQuery et GSP(le mécanismes de grails pour rendre les vues).
-Il contient tous un "navbar" qui permet de naviguer entre les pages differentes.
-Le "navbar" contient des éléments suivants:
+L'interface homme-machine (IHM) de l'application est réalisé en Bootstrap, jQuery et GSP(le mécanismes de grails pour rendre les vues).
+Chaque page contient une entête qui permet de naviguer entre les differentes pages.
+l'entête contient des éléments suivants :
 \begin{itemize}
- \item Nom de l'application, nom de version et le numéro de déploiement sur Jenkins ;
- \item Quatre buttons vers les quater pages ;
- \item Un dropdown menu qui permet de swicher les langages (Français, Anglais, Chinois).
+ \item Nom de l'application, identifiant de version et de déploiement ;
+ \item Quatre boutons vers les quater pages ;
+ \item Un menu déroulant qui permet de basculer entre les langages (Français, Anglais, Chinois).
        Par défaut la language est configurée selon localisation.
        La fonctionnalité d'internationalization est réalisée un utilisant plugin "i18n",
        nous avons changé le format et l'encodage par défaut pour ajouter une langage non-latino.
 \end{itemize}
 
-L'application contient principalement les cinq écrans suivant:
+L'application contient principalement les cinq écrans suivants :
+\begin{itemize}
+ \item Page d'accueil ;
+ \item Page recherche ;
+ \item Page comparison ;
+ \item Page validation ;
+ \item Page edition.
+\end{itemize}
 
 %page d'accueil
-\subsubsection{La page d'accueil (fig.\ref{fig:page_home})}
+\subsubsection{Paged'accueil (fig.\ref{fig:page_home})}
 Cette page contient des élements suivants :
 \begin{itemize}
- \item Un bar de recherche qui ramène à la page recherche ;
- \item Un modal(fig.\ref{fig:modal_setting}) pour la configuration personnalisée ;
- \item Des buttons comme accès rapide vers la page recherche ;
- \item Un footer qui ramène vers la documentation, les codes sources de l'application et la documentation de l'api REST.
+ \item Un champ de recherche qui ramène à la page recherche ;
+ \item Une fenêtre modale (fig.\ref{fig:modal_setting}) pour la configuration personnalisée ;
+ \item Des boutons comme accès rapide vers la page recherche ;
+ \item Un pied de page qui renvoie vers la documentation, les codes sources de l'application et la documentation de l'api REST.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -136,8 +156,8 @@ Cette page contient des élements suivants :
 \end{figure}
 
 %page recherche
-\subsubsection{La page recherche (fig.\ref{fig:page_search})}
-Cette page permet de choisir une notes de livraison et l'afficher.
+\subsubsection{Page recherche (fig.\ref{fig:page_search})}
+Cette page permet de choisir une note de livraison et l'afficher.
 
 Elle contient des éléments suivants :
 \begin{itemize}
@@ -145,7 +165,7 @@ Elle contient des éléments suivants :
        On peut filter par le type de release et la grammaire de l'expression régulière (regex) ;
  \item Une note de livraison affichée au format json manipulative.
        L'affichage de json est réalisé avec un plugin jQuery ;
- \item Des buttons qui permettent de swicher le format d'affichage et des liens vers la page validation et l'application Nexus.
+ \item Des boutons qui permettent de swicher le format d'affichage et des liens vers la page validation et l'application Nexus.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -156,7 +176,7 @@ Elle contient des éléments suivants :
 \end{figure}
 
 %page comparaison
-\subsubsection{La page comparaison (fig.\ref{fig:page_comparaison})}
+\subsubsection{Page comparaison (fig.\ref{fig:page_comparaison})}
 Cette page permet de comparer les différentes versions de notes de livraisons d'une trigramme (lexique.\ref{lexi:trigramme}).
 
 Elle contient des éléments suivants :
@@ -173,7 +193,7 @@ Elle contient des éléments suivants :
 \end{figure}
 
 %page validation
-\subsubsection{La page validation (fig.\ref{fig:page_validation})}
+\subsubsection{Page validation (fig.\ref{fig:page_validation})}
 Cette page permet de vérifier si une note de livraison est validée selon un json schéma.
 
 Elle contient des éléments suivants :
@@ -199,7 +219,7 @@ Elle contient des éléments suivants :
 \end{figure}
 
 %page edition
-\subsubsection{La page edition (fig.\ref{fig:page_edition})}
+\subsubsection{Page edition (fig.\ref{fig:page_edition})}
 Cette page permet d'éditer, valider et stocker une note de livraison.
 
 Elle contient des éléments suivants :

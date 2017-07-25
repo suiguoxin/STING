@@ -1,9 +1,17 @@
-\section{Usine Logicielle \& Katana}
+\section{Usine Logicielle}
 
 \subsection{Usine Logicielle}
-L'usine logicielle est l'ensemble de logiciels, d'outils et de procédures qui permettent de structurer et d'industrialiser les développements VSCT, ainsi que leur validation et déploiement sur l'infrastructure VSCT (hors VSCloud).
+L'usine logicielle est l'ensemble de logiciels, d'outils et de procédures qui permettent de structurer et d'industrialiser les développements VSCT,
+ainsi que leur validation et déploiement sur l'infrastructure VSCT classique (hors cloud privé).
 
-Dans sa définition actuelle : elle est la continuation de la nouvelle usine logicielle Lille et de Katana.
+Dans sa définition actuelle :
+elle est la continuation d'autres initiatives internes :
+\begin{itemize}
+  \item la nouvelle usine logicielle Lille ;
+  \item Katana.
+\end{itemize}
+
+\subsubsection{Outillage pour le développement}
 
 \begin{figure}[ht]
  \centering
@@ -22,15 +30,17 @@ Chaque plateforme a un rôle défini. Les plateformes de production font l'objet
 Le développeur dispose d'un outillage d'intégration/déploiement continue (JENKINS) pour piloter les compilations/générations, validations, déploiements sur des plateforme intermédiaires...
 Pour certaines de ces étapes, JENKINS pilote des outils-tiers (FISHEYE, CRUCIBLE, CHECKMARX, SONAR, etc).
 
-Les serveurs (virtuels ou non) des plateformes sont accessibles en ligne de commande SSH au travers d'un frontal WALLIX, en fonction des droits de chacun.
-
-Un frontal web (RUNDECK) permet de mettre à disposition des utilisateurs des opérations de plus haut-niveau, en self-service web sur les serveurs/plateformes (exemples : déploiement applicatif, reconfiguration applicative, arrêt/relance et autres opérations spécifiques sur les serveurs).
+\subsubsection{Outillage pour l'opération des machines}
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=0.8\textwidth]{usine-logicielle-operation}
  \caption{Usine Logicielle: Opération}
 \end{figure}
+
+Les serveurs (virtuels ou non) des plateformes sont accessibles en ligne de commande SSH au travers d'un frontal WALLIX, en fonction des droits de chacun.
+
+Un frontal web (RUNDECK) permet de mettre à disposition des utilisateurs des opérations de plus haut-niveau, en self-service web sur les serveurs/plateformes (exemples : déploiement applicatif, reconfiguration applicative, arrêt/relance et autres opérations spécifiques sur les serveurs).
 
 La configuration détaillée des différentes plateformes de l'application est industrialisée par :
 \begin{itemize}
@@ -39,7 +49,8 @@ La configuration détaillée des différentes plateformes de l'application est i
 \end{itemize}
 
 Sauf cas particulier, l'accès aux outils et aux plateformes se fait selon l'authentification Active Directory de l'utilisateur.
-\subsection{Katana}
+
+\subsection{Configuration Technique et Déploiement Applicatif}
 
 La solution Katana assure la configuration technique, le déploiement applicatif et autres tâches industrialisées sur les machines des infrastructures VSCT de Lille/St-Denis (DMZs hors-production, Assemblage, Perf, Partenaires, Rithmics, Technique, Production, SNB....), à l'exception notable des SIs du CNIT, de VSCloud et des infra Big Data.
 

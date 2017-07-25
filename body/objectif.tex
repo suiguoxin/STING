@@ -2,14 +2,16 @@
 Au sein de la direction Delivery, les équipes de développement travaillent avec les équipes d’exploitation selon des principes devops.
 Pour cela, elles disposent d’un outillage self-service (Katana) pour, entre autres,
 livrer leurs applications et les déployer sur les différentes plateformes (usine, recette, pré-production, production).
-A date, cet outillage supporte les activités de plus de 150 applications, sur plus de 1500 plateformes.
+A date, cet outillage supporte les activités de plus de 150 applications, sur plus de 1800 plateformes.
 
 Pour utiliser cet outillage,
 les équipes de développement génèrent pour chaque version de leurs applications une note de livraison (lexique.\ref{lexi:delivery_note}) qui porte l’ensemble des informations utiles associées
 (identifiant et emplacement des livrables applicatifs, moyens de tester le bon fonctionnement, pré-requis et instructions d’installation, etc).
 Ce document prend la forme d’un fichier structuré (JSON).
 
-Objectif de ce projet est de créer une application web (IHM + API REST) pour manipuler les notes de livraison Katana, qui permet de :
+A ce stade, la note de livraison est soit éditée à la main, soit générée automatiquement dans le traitement d'intégration continue (exemple : par MAVEN), et archivéé dans l'entrepôt de livrable.
+
+L'objectif de ce projet est de créer une application web (IHM + API REST) pour manipuler les notes de livraison Katana, qui permet de :
 
 \begin{itemize}
  \item gérer l'objet NDL de manière plus simple qu'avec Nexus/filesystème;
@@ -18,7 +20,7 @@ Objectif de ce projet est de créer une application web (IHM + API REST) pour ma
  \item outiller le suivi du cycle de vie des versions par rapports aux informations remontées par les outils de l'usine logicielle et Katana.
 \end{itemize}
 
-L’application devra être légère, dynamique et facilement évolutive, et non-contraignante pour les équipes.
+L’application vise à être légère, dynamique et facilement évolutive, et non-contraignante pour les équipes.
 
 Le but est de fiabiliser le processus de livraison et de mise en production des applications.
 
@@ -40,5 +42,7 @@ Le stage contient, dans une démarche itérative :
  \includegraphics[width=0.8\textwidth]{dn_rider_position}
  \caption{Dn Rider}
 \end{figure}
+
+L'application est développée de manière conforme aux normes de l'entreprise aux niveaux des tests automatiques et de l'intégration continue.
 
 \clearpage
