@@ -122,20 +122,23 @@ l'entête contient des éléments suivants :
        nous avons changé le format et l'encodage par défaut pour ajouter une langage non-latino.
 \end{itemize}
 
+\begin{minipage}{\textwidth}
 L'application contient principalement les cinq écrans suivants :
-\begin{itemize}
- \item Page d'accueil ;
- \item Page recherche ;
- \item Page comparison ;
- \item Page validation ;
- \item Page edition.
-\end{itemize}
+  \begin{itemize}
+   \item Page d'accueil ;
+   \item Page recherche ;
+   \item Page comparison ;
+   \item Page validation ;
+   \item Page edition.
+  \end{itemize}
+\end{minipage}
 
 %page d'accueil
 \subsubsection{Paged'accueil (fig.\ref{fig:page_home})}
+
 Cette page contient des élements suivants :
 \begin{itemize}
- \item Un champ de recherche qui ramène à la page recherche ;
+ \item Un champ de recherche qui renvoie à la page recherche ;
  \item Une fenêtre modale (fig.\ref{fig:modal_setting}) pour la configuration personnalisée ;
  \item Des boutons comme accès rapide vers la page recherche ;
  \item Un pied de page qui renvoie vers la documentation, les codes sources de l'application et la documentation de l'api REST.
@@ -151,7 +154,7 @@ Cette page contient des élements suivants :
 \begin{figure}[ht]
  \centering
  \includegraphics[width=0.6\textwidth]{modal_setting}
- \caption{Le modal configuration}
+ \caption{La fenêtre modale de configuration}
  \label{fig:modal_setting}
 \end{figure}
 
@@ -161,11 +164,11 @@ Cette page permet de choisir une note de livraison et l'afficher.
 
 Elle contient des éléments suivants :
 \begin{itemize}
- \item Un sidebar collapsible qui contient un formulaire pour choisir les notes de livraisons.
-       On peut filter par le type de release et la grammaire de l'expression régulière (regex) ;
- \item Une note de livraison affichée au format json manipulative.
+ \item Un barre latérale pliant qui contient un formulaire pour choisir les notes de livraisons.
+       On peut filter par le type de release et une expression régulière (regex) ;
+ \item Une note de livraison affichée au format json (affichage brut ou arborescent).
        L'affichage de json est réalisé avec un plugin jQuery ;
- \item Des boutons qui permettent de swicher le format d'affichage et des liens vers la page validation et l'application Nexus.
+ \item Des boutons qui permettent de basculer le format d'affichage et des liens vers la page validation et l'application Nexus.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -177,12 +180,13 @@ Elle contient des éléments suivants :
 
 %page comparaison
 \subsubsection{Page comparaison (fig.\ref{fig:page_comparaison})}
-Cette page permet de comparer les différentes versions de notes de livraisons d'une trigramme (lexique.\ref{lexi:trigramme}).
+Cette page permet de comparer les différentes versions de notes de livraisons d'une même application,
+qui est identifiée par un trigramme (lexique.\ref{lexi:trigramme}).
 
 Elle contient des éléments suivants :
 \begin{itemize}
- \item Un sidebar collapsible qui contient un formulaire pour choisir les notes de livraisons ;
- \item Un tableau qui compare les packages des notes de livraisons, le contenu des packages se présentent dans un popover sous format json manipulatif.
+ \item Un barre latérale pliant qui contient un formulaire pour choisir les notes de livraisons ;
+ \item Un tableau qui compare les packages des notes de livraisons, le contenu des packages se présentent dans un "popover".
 \end{itemize}
 
 \begin{figure}[ht]
@@ -194,17 +198,17 @@ Elle contient des éléments suivants :
 
 %page validation
 \subsubsection{Page validation (fig.\ref{fig:page_validation})}
-Cette page permet de vérifier si une note de livraison est validée selon un json schéma.
+Cette page permet de vérifier si une note de livraison est valide selon un "schéma json".
 
 Elle contient des éléments suivants :
 \begin{itemize}
  \item Une zone qui permet d'éditer une note de livraison ;
- \item Un bouton qui ramène vers une page qui affiche le schéma ;
+ \item Un bouton qui renvoie vers une page qui affiche le schéma ;
  \item Une fenêtre qui affiche les résultats de validation. Il y a trois types de résultats possibles :
        \begin{itemize}
-        \item Json non valide :
+        \item Donnée mal formée (syntaxe json incorrect):
               Afficher la position de l'erreur et un lien vers l'erreur dans la zone d'édition ;
-        \item Schéma non valide :
+        \item Donnée inalide (syntaxe json corret, main contenu non conforme par rapport à un schéma) :
               Afficher les informations erreurs détaillées au format json ;
         \item Valide :
               Message de réussite.
@@ -224,10 +228,10 @@ Cette page permet d'éditer, valider et stocker une note de livraison.
 
 Elle contient des éléments suivants :
 \begin{itemize}
- \item Un sidebar collapsible qui contient un formulaire pour choisir les notes de livraisons ;
+ \item Un barre latérale pliant qui contient un formulaire pour choisir les notes de livraisons ;
  \item Une zone qui permet d'éditer une note de livraison ;
  \item Une fenêtre qui affiche les résultats de validation ;
- \item Un modal (fig.\ref{fig:modal_save}) qui permet de stocker la note de livraison.
+ \item Une fenêtre modale (fig.\ref{fig:modal_save}) qui permet de stocker la note de livraison.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -240,12 +244,12 @@ Elle contient des éléments suivants :
 \begin{figure}[ht]
  \centering
  \includegraphics[width=0.6\textwidth]{modal_save}
- \caption{Le modal configuration}
+ \caption{La fenêtre modale de save}
  \label{fig:modal_save}
 \end{figure}
 
 \subsection{Api REST}
-L'application fournie une interface api REST.
+L'application fourni une interface api REST.
 Comme dans l'IHM , l'api permet de chercher, valider, stocker des notes de livraison.
 En plus, elle permet de supprimer des notes de livraison.
 Ce qui est différent de l'IHM, on ne peut pas comparer les différents versions d'une trigramme, mais on peut obtenir le contenu d'un package d'une note de livraison.
@@ -261,8 +265,9 @@ Il est réalisé en utilisant un plugin et en ajoutant des annotations dans les 
 \end{figure}
 
 \subsection{Intégration Continue}
-Afin d'améliorer la qualité du code et du produit final et faciliter le déploiement de l'application, on pratique les principes de l'intégratioin continue.
-L'intégration continus de l'application se réalise en utilisant git et jenkins pipeline.
+Afin d'améliorer la qualité du code et du produit final et faciliter le déploiement de l'application,
+on suit les principes de l'intégration continue.
+L'intégration continue de l'application se réalise en utilisant git et jenkins pipeline.
 
 Les codes sources sont gérés en git et stocké dans Gitlab.
 Au début on a défini des actions à réaliser obligatoirement avant de faire "git push" :
@@ -273,14 +278,16 @@ Au début on a défini des actions à réaliser obligatoirement avant de faire "
  \item Exécuter grails command "test-app".
 \end{itemize}
 
-Le pipeline (fig.\ref{fig:jenkins}) contient les étapes suivantes:
-\begin{itemize}
- \item "checkout" : Récupérer les codes de Gitlab;
- \item "versioning" : Modifier la version de l'application selon le numéro de déploiement sur Jenkins;
- \item "build" : Builder l'applcation;
- \item "deploy" : Copier le war excutable sur le serveur de production;
- \item "run" : Exécuter l'application.
-\end{itemize}
+\begin{minipage}{\textwidth}
+  Le pipeline (fig.\ref{fig:jenkins}) contient les étapes suivantes:
+  \begin{itemize}
+   \item "checkout" : Récupérer les codes de Gitlab;
+   \item "versioning" : Modifier la version de l'application selon le numéro de déploiement sur Jenkins;
+   \item "build" : Builder l'applcation;
+   \item "deploy" : Copier le war excutable sur le serveur de production;
+   \item "run" : Exécuter l'application.
+  \end{itemize}
+\end{minipage}
 
 \begin{figure}[ht]
  \centering
@@ -291,7 +298,7 @@ Le pipeline (fig.\ref{fig:jenkins}) contient les étapes suivantes:
 
 \subsection{Test}
 
-Les tests sont faits pour assurer le bon fonctionnement.
+Les tests sont faits pour s'assurer le bon fonctionnement et de l'absence de regressions en cas d'évolution.
 Ils sont à lancer avant chaque confirmation de modification de code et chaque déploiement. (fig.\ref{fig:test})
 
 \begin{figure}[ht]
@@ -303,14 +310,17 @@ Ils sont à lancer avant chaque confirmation de modification de code et chaque d
 
 Les tests contientent des parties suivantes :
 \begin{itemize}
- \item les tests d'intégration:
-       Dans le test d’intégration, chacun des modules indépendants du logiciel est assemblé et testé dans l’ensemble.
-       Ils sont réalisés en utilisant le framework "Spock" et ils ont couvert l'ensemble des fonctionnalités de l'api REST.
- \item les tests fonctionnels:
+ \item les tests unitaires :
+       Le test unitaire permet de vérifier le bon fonctionnement d'une partie précise d'une application.
+       Cette partie est couverte par les tests d'intégration dans cette application ;
+ \item les tests d'intégration :
+       Dans le test d’intégration, chaque module indépendant du logiciel est assemblé et testé dans l’ensemble.
+       Ils sont réalisés en utilisant le framework "Spock" et ils couverent l'ensemble des fonctionnalités de l'api REST ;
+ \item les tests fonctionnels :
        Les tests fonctionnels sont pour objectif de  vérifier que les fonctionnalités demandées sont bien supportées.
        Ils sont prévu pour la partie IHM.
 \end{itemize}
 
-L'automatisation de test sur Jenkins est prévu.
+L'automatisation de test sur Jenkins est prévue.
 
 \clearpage
